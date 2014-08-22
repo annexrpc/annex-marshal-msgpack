@@ -1,0 +1,11 @@
+{application, annex_marshal_msgpack, [
+  {description, "msgpack marshalizer for annex"},
+  {vsn, "0.1.0"},
+  {modules, []},
+  {registered, []},
+  {applications, [
+    kernel,
+    stdlib
+  ]},
+  {env, []}
+]}.
