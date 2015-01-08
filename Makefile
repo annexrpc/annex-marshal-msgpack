@@ -4,7 +4,7 @@ PROJECT = annex_marshal_msgpack
 
 DEPS = msgpack
 
-dep_msgpack = git https://github.com/msgpack/msgpack-erlang.git 7cc8266afd06639d24a33e1ed60234983aab6443
+dep_msgpack = git https://github.com/msgpack/msgpack-erlang.git 69d5aa8ff5f100ec99c6f31662c05baa3f7276f8
 
 include erlang.mk
 
