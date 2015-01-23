@@ -50,7 +50,7 @@ decode(Bin) ->
       {ok, MsgID, {call, Action, Arguments, Meta}};
 
     {ok, [1, MsgID, Action, Arguments]} ->
-      {ok, MsgID, {cast, MsgID, Action, Arguments}};
+      {ok, MsgID, {cast, Action, Arguments}};
     {ok, [1, MsgID, Action, Arguments, Meta]} ->
       {ok, MsgID, {cast, Action, Arguments, Meta}};
 
