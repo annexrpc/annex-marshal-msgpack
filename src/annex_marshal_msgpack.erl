@@ -32,10 +32,10 @@ response(MsgID, Response) ->
 response(MsgID, Response, Meta) ->
   encode([2, MsgID, Response, Meta]).
 
-error(MsgID, Response) ->
-  encode([3, MsgID, Response]).
-error(MsgID, Response, Meta) ->
-  encode([3, MsgID, Response, Meta]).
+error(MsgID, Code, Message) ->
+  encode([3, MsgID, Code, Message]).
+error(MsgID, Code, Message, Meta) ->
+  encode([3, MsgID, Code, Message, Meta]).
 
 encode(Args) ->
   msgpack:pack(Args, ?OPTIONS).
@@ -59,10 +59,10 @@ decode(Bin) ->
     {ok, [2, MsgID, Response, Meta]} ->
       {ok, {response, MsgID, Response, Meta}};
 
-    {ok, [3, MsgID, Response]} ->
-      {ok, {error, MsgID, Response}};
-    {ok, [3, MsgID, Response, Meta]} ->
-      {ok, {error, MsgID, Response, Meta}};
+    {ok, [3, MsgID, Code, Message]} ->
+      {ok, {error, MsgID, Code, Message}};
+    {ok, [3, MsgID, Code, Message, Meta]} ->
+      {ok, {error, MsgID, Code, Message, Meta}};
 
     {ok, Other} ->
       {error, {unexpected_response, Other}}
